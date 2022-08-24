@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   <!-- <ion-title>Trainings</ion-title>-->
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let user of users$|async" (click)="openDetailModal(user)">
+      <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="9">
+              <ion-card-title>{{user.name_and_surname}}</ion-card-title>
+              <ion-card-title>{{user.email}}</ion-card-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button  (click)="onLogOut()">LogOut</ion-button> <!--ZAPAMTI DA JE CLICK, A NE ONCLICK-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

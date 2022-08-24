@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button color="#000000" routerLink="/home"> <!--Ne znam da li je ovo najbolje resenje-->
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <h1>Register</h1>
+    <img src="assets/img/slika1.jpg"/>
+  </div>
+
+
+  <form id="#form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <ion-input placeholder="Name and surname" formControlName="name_and_surname"></ion-input>
+    <ion-input placeholder="Email" formControlName="email"></ion-input>
+    <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    <ion-button type="submit" expand="block" shape="round" [disabled]="registerForm.invalid">Register</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{training.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/img/slika3.jpg" alt=""> 
+
+
+<div class="ion-padding">
+  <ion-text>
+    <h1>{{training.name}}</h1>
+    <h1>Training room: {{training.training_room}}</h1>
+    <h2>{{training.time}}</h2>
+    <p class="ion-margin-vertical">Current available capacity for this training is: {{training.capacity}}</p>
+  </ion-text>
+
+
+  <ion-button  expand="block" (click)="openEditModal()" *ngIf="isAdmin">Edit</ion-button>
+  <ion-button expand="block" color="danger" (click)="onDeleteTraining()" *ngIf="isAdmin">Delete</ion-button>
+  <ion-button expand="block" (click)="makeReservation(training)">Make reservation</ion-button>
+</div>
+</ion-content>

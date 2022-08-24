@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{isEditMode ? 'Update' : 'Add'}} training</ion-title>
+    <ion-buttons slot="start" *ngIf="!isEditMode">
+      <ion-back-button defaultHref="trainings"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="isEditMode">
+      <ion-button (click) = "closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]='form'>
+    <ion-item>
+      <ion-label position='floating'>Name</ion-label>
+      <ion-input formControlName='name'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Capacity</ion-label>
+      <ion-input formControlName='capacity'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Training room</ion-label>
+      <ion-input formControlName='training_room'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Date</ion-label>
+      <ion-input formControlName='time'></ion-input>
+    </ion-item>
+
+
+
+    <ion-button expand="block" (click)="submitTraining()" [disabled]="form.invalid">
+      {{isEditMode ? 'Update' : 'Save'}} training
+    </ion-button>
+
+
+  </form>
+</ion-content>

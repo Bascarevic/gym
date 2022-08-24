@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button id="main"></ion-menu-button>
+    </ion-buttons>
+   <!-- <ion-title>Trainings</ion-title>-->
+    <ion-buttons slot="end" *ngIf="isAdmin">
+      <ion-button routerLink="/add-training">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let training of trainings$|async" (click)="openDetailModal(training)">
+      <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="3">
+            <ion-thumbnail>
+              <img src="assets/img/slika3.jpg"/>
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="9">
+              <ion-card-title>Training: {{training.name}}</ion-card-title>
+              <ion-card-title>Current capacity: {{training.capacity}}</ion-card-title>
+              <ion-card-title>Training room: {{training.training_room}}</ion-card-title>
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button  (click)="onLogOut()">LogOut</ion-button> <!--ZAPAMTI DA JE CLICK, A NE ONCLICK-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

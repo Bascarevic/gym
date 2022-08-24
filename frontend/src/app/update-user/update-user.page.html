@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update user</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click) = "closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]='form'>
+    <ion-item>
+      <ion-label position='floating'>Name and surname</ion-label>
+      <ion-input formControlName='name_and_surname'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Email</ion-label>
+      <ion-input formControlName='email'></ion-input>
+    </ion-item>
+    
+    <ion-button expand="block" (click)="submitUser()" [disabled]="form.invalid"> Update user </ion-button>
+
+
+  </form>
+</ion-content>
+

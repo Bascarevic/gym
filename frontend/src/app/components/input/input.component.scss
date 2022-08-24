@@ -1,0 +1,27 @@
+ion-item{
+    border-radius: 50px;
+    height: 55px;
+    box-shadow: #9b9ca1;
+    --highlight-height:0px;
+
+    ion-input{
+        font-size: 18px;
+        --padding-top:20px;
+        --padding-bottom:15px;
+        --padding-start:5px;
+    }
+
+    a{
+        font-size:17px;
+        letter-spacing:0.5px;
+        text-decoration: none;
+    }
+}
+
+ion-toolbar{
+    --background: #d2d2db;
+}
+
+ion-content{
+    --background: #efeff9;
+}
