@@ -13,15 +13,7 @@ class ReservationController extends Controller
     public function store(Request $request)
 {
     $logged_user = auth()->user();
-    //i ovi dodatni uslovi rade, nzm sto facades nece da radi
-    /*
-    $request->validate([
-        'name'=>'required|string|max:50',
-        'training_room'=> 'required|string|max:50',
-        'capacity' => 'required',
-        'time' => 'required'
-    ]);
-*/
+ 
 
     $training = Training::find($request->id);
 

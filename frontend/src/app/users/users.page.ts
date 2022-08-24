@@ -16,6 +16,8 @@ import { User } from './users.model';
 export class UsersPage implements OnInit {
   users$ : Observable<User[]>;
 
+  searchTerm: string;
+
   constructor(private loadingCtrl: LoadingController, private modalCtrl:ModalController, private as:AuthService, private router: Router, private us:UserService) { }
 
   async ngOnInit() {

@@ -34,10 +34,7 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
-        /*
-        return response()->json(['message' => 'New user successfully created.', 'data' => $user, 'access_token' => $token,
-            'token_type' => 'Bearer', 'success' => true, 'user_type' => 'user', 'user_id' => $user->id]); //ovo ovde vidi malo izmeni tekst, da ide nekim malo boljim redom
-   */
+       
          return response()->json(['data'=>$user, 'access_token'=>$token, 'token_type'=>'Bearer', 'message'=>'Uspesna registracija!']);
         }
 
@@ -47,23 +44,12 @@ class AuthController extends Controller
             return response()->json(['success'=>'false']);
 
 
-          //  return response()->json(['message' => 'Unauthorized'], 401);
+
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
-/*
-        $userRole = DB::table('users')
-            ->join('user_roles', 'users.id_role', '=', 'user_roles.id')
-            ->select('user_roles.role_name')
-            ->where('users.id', '=', $user->id)
-            ->get();
-            */
+
         $token = $user->createToken('auth_token')->plainTextToken;
-/*
-        return response()->json(['message' => 'Successfully logged in ' . $user->name_and_surname,
-            'access_token' => $token, 'token_type' => 'Bearer', 'success' => true,
-            'user_type' => $userRole, 'user_id' => $user->id]); //i ovo ovde malo izmeniti!!!
-            */
 
             return response()->json(['success'=>true, 'access_token'=>$token, 'token_type'=>'Bearer', 'user_role'=> $user->user_role, 'name_and_surname'=>$user->name_and_surname]);
 

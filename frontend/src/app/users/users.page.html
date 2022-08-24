@@ -9,8 +9,15 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-searchbar
+  placeholder="Enter name"
+  [(ngModel)]="searchTerm"
+  showCancelButton="focus"
+  animated></ion-searchbar>
+
   <ion-list>
-    <ion-card *ngFor="let user of users$|async" (click)="openDetailModal(user)">
+    <ion-card *ngFor="let user of users$|async|filter:searchTerm" (click)="openDetailModal(user)">
       <ion-card-content>
       <ion-grid fixed>
         <ion-row>
