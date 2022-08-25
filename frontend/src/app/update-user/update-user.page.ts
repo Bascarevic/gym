@@ -40,13 +40,13 @@ export class UpdateUserPage implements OnInit {
   }
    //ovo ovde ne radi posao
   setFormValues(){
-    console.log("Ovo je set form values")
+   // console.log("Ovo je set form values")
     this.form.setValue({
       name_and_surname: this.user.name_and_surname,
       email: this.user.email,
       
     });
-    console.log(this.user.name_and_surname);
+    //console.log(this.user.name_and_surname);
 
     this.form.updateValueAndValidity();
   }
@@ -61,20 +61,20 @@ export class UpdateUserPage implements OnInit {
 
    let response : Observable<User>;
 
-   console.log("ovo je form value: " + this.form.value)
+  
    if(this.isEditMode){
    response = this.us.updateUsers(this.user.id, this.form.value);
    }
 
-   console.log(response);
+    
 
-   response.pipe(take(1)).subscribe((user)=>{
-    this.form.reset();
-   loading.dismiss();
+      response.pipe(take(1)).subscribe((user)=>{
+       this.form.reset();
+      loading.dismiss();
 
-   if(this.isEditMode){
-   this.closeModal(user);
-   }
+     if(this.isEditMode){
+     this.closeModal(user);
+     }
    
   });
   }

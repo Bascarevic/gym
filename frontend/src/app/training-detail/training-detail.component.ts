@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 export class TrainingDetailComponent implements OnInit {
   @Input() training: Training;
   isAdmin = false;
+// @Input() isAdmin; //obrati paznju ovde
   token = null;
   today = null;
 

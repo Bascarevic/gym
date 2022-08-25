@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TrainingService } from '../services/trainings.service';
 import { Training } from './training.model';
@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
   export class TrainingsPage implements OnInit {
     trainings$: Observable<Training[]>;
     isAdmin = false;
+    //@Input() isAdmin; //obrati paznju ovde
   
     constructor(private ts: TrainingService, private loadingCtrl: LoadingController, private modalCtrl:ModalController, private as:AuthService, private router: Router) { }
   

@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, Input } from "@angular/core";
 import axios, {Axios} from 'axios';
+import { Observable } from "rxjs";
 import { User } from "../users/users.model";
 
 interface userDataLogin{
@@ -23,12 +24,12 @@ interface userDataRegister{
 
 export class AuthService{
     private _isUserAuthenticated = false;
-    private _isAdmin = false;
+    @Input() _isAdmin = false; //bez false? i dodati else dole
 
     apiUrl = 'http://127.0.0.1:8000/api';
     user = null;
     role = null;
-    auth_user = null;
+    @Input() auth_user;
 
     constructor(private http: HttpClient){}
 
@@ -54,6 +55,7 @@ export class AuthService{
         this.user.subscribe(res=>{this.role=res.user_role});
         this.user.subscribe(res=>{this.auth_user=res.name_and_surname});
 
+        
       //  console.log(this.auth_user);
         
         return this.user;
@@ -83,7 +85,7 @@ export class AuthService{
    axios(config).then(function(response){
     console.log(JSON.stringify(response.data));
     window.sessionStorage.setItem('access_token', null);
-    //location.reload();
+    location.reload();
    }).catch(function(error){
     console.log(error);
    });

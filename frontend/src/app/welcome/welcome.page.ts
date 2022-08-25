@@ -7,8 +7,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
-  //@Input() user: any;
-  user = null;
+  @Input() user: any;
+  //user = null;
 
   constructor(private as:AuthService) { }
 

@@ -50,11 +50,11 @@ export class UsersPage implements OnInit {
     const {data: updatedUser, role} = await modal.onDidDismiss();
 
 
-    if(updatedUser && role=='edit'){
+    if(updatedUser && role==='edit'){
       this.users$ = this.users$.pipe(
         map(users=>{
           users.forEach((u)=>{
-            if(u.id==updatedUser.id){
+            if(u.id===updatedUser.id){
               u = updatedUser;
             }
             return u;

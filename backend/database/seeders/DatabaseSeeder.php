@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'id_training'=>8
         ]);
         */
-        Training::factory()->count(10)->create();
+       // Training::factory()->count(10)->create();
 
 
         // \App\Models\User::factory(10)->create();
